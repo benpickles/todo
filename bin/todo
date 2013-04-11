@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'todo'
+require 'todo/cli'
+require 'todo/file_store'
+
+Todo::Cli.new(Dir.pwd, ARGV, $stdout, $stderr).run
