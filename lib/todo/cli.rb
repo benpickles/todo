@@ -15,12 +15,21 @@ module Todo
     end
 
     def run
-      list.each do |item|
-        puts item.text
+      if argv.empty?
+        list.each do |item|
+          puts item.text
+        end
+      else
+        list << argv.join(' ')
+        dump
       end
     end
 
     private
+      def dump
+        Todo::FileStore.dump(list, path)
+      end
+
       def list
         @list ||= Todo::FileStore.load(path)
       end

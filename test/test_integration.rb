@@ -22,5 +22,13 @@ describe 'executable integration' do
 
     assert_equal '', stdout
     assert_equal '', stderr
+
+    todo('foo')
+    todo('bar')
+
+    stdout, stderr = todo
+
+    assert_equal "foo\nbar\n", stdout
+    assert_equal '', stderr
   end
 end
