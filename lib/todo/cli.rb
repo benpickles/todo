@@ -17,8 +17,12 @@ module Todo
     def run
       if argv.empty?
         list.each do |item|
-          puts item.text
+          out.puts item.text
         end
+      elsif argv.first =~ /^-d(\d+)$/
+        index = $1.to_i
+        list.delete_at(index)
+        dump
       else
         list << argv.join(' ')
         dump
