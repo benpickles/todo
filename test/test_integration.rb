@@ -28,14 +28,14 @@ describe 'executable integration' do
 
     stdout, stderr = todo
 
-    assert_equal "foo\nbar\n", stdout
+    assert_equal "1. foo\n2. bar\n", stdout
     assert_equal '', stderr
 
-    todo('-d0')
+    todo('-d1')
 
     stdout, stderr = todo
 
-    assert_equal "bar\n", stdout
+    assert_equal "1. bar\n", stdout
     assert_equal '', stderr
   end
 end

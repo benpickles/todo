@@ -16,11 +16,11 @@ module Todo
 
     def run
       if argv.empty?
-        list.each do |item|
-          out.puts item.text
+        list.each_with_index do |item, i|
+          out.puts "#{i + 1}. #{item.text}"
         end
       elsif argv.first =~ /^-d(\d+)$/
-        index = $1.to_i
+        index = $1.to_i - 1
         list.delete_at(index)
         dump
       else
