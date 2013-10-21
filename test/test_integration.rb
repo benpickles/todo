@@ -10,10 +10,10 @@ describe 'executable integration' do
   end
 
   def todo(args = '')
-    command = "ruby -I#{lib_path} #{bin_path} #{args}"
-
-    Open3.capture3(command, { chdir: tmpdir }).tap do |_, err, status|
-      assert status.success?, "command failed:\n#{err}"
+    Dir.chdir tmpdir do
+      capture_subprocess_io do
+        system "ruby -I#{lib_path} #{bin_path} #{args}"
+      end
     end
   end
 
