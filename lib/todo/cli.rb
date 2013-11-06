@@ -16,8 +16,10 @@ module Todo
 
     def run
       if argv.empty?
+        size = list.size.to_s.size
+
         list.each_with_index do |item, i|
-          out.puts "#{i + 1}. #{item.text}"
+          out.puts "#{(i + 1).to_s.rjust(size)}. #{item.text}"
         end
       elsif argv.first =~ /^-d(\d+)$/
         index = $1.to_i - 1

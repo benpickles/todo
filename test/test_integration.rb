@@ -37,5 +37,20 @@ describe 'executable integration' do
 
     assert_equal "1. bar\n", stdout
     assert_equal '', stderr
+
+    todo('car')
+    todo('dar')
+    todo('ear')
+    todo('far')
+    todo('gar')
+    todo('har')
+    todo('iar')
+    todo('jar')
+    todo('kar')
+
+    stdout, stderr = todo
+
+    assert_equal " 1. bar\n 2. car\n 3. dar\n 4. ear\n 5. far\n 6. gar\n 7. har\n 8. iar\n 9. jar\n10. kar\n", stdout
+    assert_equal '', stderr
   end
 end
